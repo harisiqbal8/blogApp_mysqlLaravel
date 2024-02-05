@@ -13,7 +13,8 @@
                         <img src="/images/lary-avatar.svg" alt="{{ $postunique->author->name }}">
                         <div class="ml-3 text-left">
                             <h5 class="font-bold">
-                                <a href="/?author={{ $postunique->author->username }}">{{ $postunique->author->name }}</a>
+                                <a
+                                    href="/?author={{ $postunique->author->username }}">{{ $postunique->author->name }}</a>
                             </h5>
                         </div>
                     </div>
@@ -49,7 +50,16 @@
                         {!! $postunique->body !!}
                     </div>
                 </div>
+
+                <section class="col-start-5 col-span-8 mt-10 space-y-6">
+                    <x-post-comment />
+                    <x-post-comment />
+                    <x-post-comment />
+                    <x-post-comment />
+                </section>
+
             </article>
+
         </main>
 
     </section>
