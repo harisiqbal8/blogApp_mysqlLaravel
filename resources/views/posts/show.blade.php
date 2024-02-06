@@ -52,10 +52,9 @@
                 </div>
 
                 <section class="col-start-5 col-span-8 mt-10 space-y-6">
-                    <x-post-comment />
-                    <x-post-comment />
-                    <x-post-comment />
-                    <x-post-comment />
+                    @foreach ( $postunique->comment as $comments )
+                        <x-post-comment :comments="$comments" />
+                    @endforeach
                 </section>
 
             </article>
