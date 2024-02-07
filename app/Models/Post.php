@@ -8,8 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
-    protected  $guarded = [];
-
     protected $with =['category', 'author'];
 
     public function scopeFilter($query, array $filters)
