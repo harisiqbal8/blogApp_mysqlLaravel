@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -19,6 +20,16 @@ class Post extends Model
                 ->orWhere('body', 'like', '%' . $search . '%')
             )
         );
+
+        // Date Filter
+        // dd($filters);
+        $query->when(($filters['startDate'] && $filters['endDate']) ?? false, function ($query) use ($filters) {
+            $startDate = $filters['startDate'];
+            $endDate = $filters['endDate'];
+        
+            return $query->where('created_at', '>=', $startDate)
+                ->where('created_at', '<=', Carbon::parse($endDate)->endOfMinute());
+        });
 
         // Category Filter
         $query->when($filters['category'] ?? false, fn ($query, $category) =>
