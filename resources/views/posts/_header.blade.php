@@ -47,7 +47,7 @@
                     class="bg-transparent placeholder-black font-semibold text-sm" value="{{ request('startDate') }}">
                 <input type="datetime-local" name="endDate" placeholder="date"
                     class="bg-transparent placeholder-black font-semibold text-sm" value="{{ request('endDate') }}">
-                <button type="submit">Filter Date</button>
+                <button type="submit" class="text-sm font-semibold">Filter Date</button>
             </form>
         </div>
     </div>
