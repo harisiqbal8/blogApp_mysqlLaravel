@@ -22,7 +22,6 @@ class Post extends Model
         );
 
         // Date Filter
-        // dd($filters);
         $query->when(($filters['startDate'] ?? false && $filters['endDate']), function ($query) use ($filters) {
             $startDate = $filters['startDate'];
             $endDate = $filters['endDate'];

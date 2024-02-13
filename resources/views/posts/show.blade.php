@@ -39,7 +39,7 @@
 
                         <div class="space-x-2">
                             <x-category-button :category="$postunique->category" />
-                            <a class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold" style="font-size: 10px" {{ $postunique->created_at->diffForHumans() < 24 ? '' : 'hidden'}}>Latest</a>
+                            <a class="px-3 py-1 border border-red-300 rounded-full text-red-300 text-xs uppercase font-semibold" style="font-size: 10px" {{ now()->diffInHours($postunique->created_at) < 12 ? '' : 'hidden'}}>Latest</a>
                         </div>
                     </div>
 
