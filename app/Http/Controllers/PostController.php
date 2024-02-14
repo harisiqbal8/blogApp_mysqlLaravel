@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Post;
+use App\Services\OpenAIService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -11,7 +12,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        
+        $this->content();
         return view ('posts.index', [
 
             'posts' => Post::latest()->filter(request(
@@ -54,5 +55,10 @@ class PostController extends Controller
         Post::create($attributes);
 
         return redirect('/');
+    }
+
+    public function content()
+    {
+        OpenAIService::generate('Generate me a sample short body for title: My favourite Hero');
     }
 }
