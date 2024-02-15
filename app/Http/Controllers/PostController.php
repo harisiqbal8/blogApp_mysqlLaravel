@@ -12,7 +12,6 @@ class PostController extends Controller
 {
     public function index()
     {
-        $this->content();
         return view ('posts.index', [
 
             'posts' => Post::latest()->filter(request(
@@ -55,10 +54,5 @@ class PostController extends Controller
         Post::create($attributes);
 
         return redirect('/');
-    }
-
-    public function content()
-    {
-        OpenAIService::generate('Generate me a sample short body for title: My favourite Hero');
     }
 }

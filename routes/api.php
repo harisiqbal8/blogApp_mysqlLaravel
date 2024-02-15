@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Requests\OpenAIRequest;
+use App\Services\OpenAIService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -16,4 +18,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::post('/content', function (OpenAIRequest $request) {
+    return OpenAIService::generate($request->prompt);
 });

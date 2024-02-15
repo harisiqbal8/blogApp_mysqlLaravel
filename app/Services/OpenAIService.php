@@ -22,6 +22,6 @@ class OpenAIService
                     "temperature" => 0.7
                 ]);
                 
-            dd($response->body());
+            return $response->body();
     }
 }
