@@ -33,6 +33,6 @@ function hideButton() {
     }
 }
 
-tinymce.init({
-    selector: 'textarea#body'
-});
+// tinymce.init({
+//     selector: 'textarea#body'
+// });
