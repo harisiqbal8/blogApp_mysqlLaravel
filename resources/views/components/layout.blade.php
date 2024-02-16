@@ -1,6 +1,6 @@
 <!doctype html>
 
-<title>Laravel With Jeffrey Way</title>
+<title>Laravel With Harry</title>
 <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
@@ -31,15 +31,16 @@
                         <x-slot name="trigger">
                             <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}!</button>
                         </x-slot>
-                        <x-dropdown-item href="/admin/dashboard">Dashboard</x-dropdown-item>
+                        <x-dropdown-item href="/admin/posts/all" :active="request()->is('admin/posts/all')">All Posts</x-dropdown-item>
                         <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
-                        <x-dropdown-item href="#" x-data="{}" @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
+                        <x-dropdown-item href="#" x-data="{}"
+                            @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
 
-                        <form id="logout-form" method="POST" action="/logout" class="hidden text-xs font-semibold text-blue-500 ml-3">
+                        <form id="logout-form" method="POST" action="/logout"
+                            class="hidden text-xs font-semibold text-blue-500 ml-3">
                             @csrf
                         </form>
                     </x-dropdown>
-
                 @else
                     <a href="/register" class="text-xs font-bold uppercase">Register</a>
                     <a href="/login" class="ml-3 text-xs font-bold uppercase">Log In</a>
@@ -82,7 +83,5 @@
             </div>
         </footer>
     </section>
-
-    < x-flash />
 
 </body>
