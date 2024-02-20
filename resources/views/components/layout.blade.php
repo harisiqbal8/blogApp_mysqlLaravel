@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {{-- <script src="https://cdn.tiny.cloud/1/my2vobpubwv1zs13km4si8mho7txzh8g8nkuvtuo1xn2k6gu/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> --}}
 <script src="{{ asset('scripts/openAI.js') }}"></script>
 
@@ -31,7 +32,7 @@
                         <x-slot name="trigger">
                             <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}!</button>
                         </x-slot>
-                        <x-dropdown-item href="/admin/posts/all" :active="request()->is('admin/posts/all')">All Posts</x-dropdown-item>
+                        <x-dropdown-item href="/admin/posts/all" :active="request()->is('admin/posts/all')">All Post</x-dropdown-item>
                         <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
                         <x-dropdown-item href="#" x-data="{}"
                             @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>

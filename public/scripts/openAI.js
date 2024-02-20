@@ -15,7 +15,13 @@ function generateText() {
         
         })
         .catch(function (error) {
-            document.getElementById("body").innerHTML = error;
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!"
+
+            });
+            document.getElementById("body").innerHTML = "Something Went Wrong, Please try again...";
             document.getElementById("generateButton").style.display = "block";
             document.getElementById("promptLoader").style.display = "none";
 
