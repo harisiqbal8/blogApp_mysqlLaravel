@@ -14,13 +14,6 @@
                                     {{ $post->title }}
                                 </a>
                             </th>
-                            <td class="px-6 py-4">
-                                <span
-                                    class="px-3 py-1 border border-green-300 rounded-full text-green-300 text-xs uppercase font-semibold"
-                                    style="font-size: 10px">
-                                    Published
-                                </span>
-                            </td>
                             <td class="px-6 py-4 text-right">
                                 <a href="/admin/posts/{{ $post->id }}/edit"
                                     class="font-medium text-blue-600 hover:text-blue-500">Edit</a>

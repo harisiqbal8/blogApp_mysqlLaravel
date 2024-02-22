@@ -32,8 +32,12 @@
                         <x-slot name="trigger">
                             <button class="text-xs font-bold uppercase">Welcome, {{ auth()->user()->name }}!</button>
                         </x-slot>
-                        <x-dropdown-item href="/admin/posts/all" :active="request()->is('admin/posts/all')">All Post</x-dropdown-item>
-                        <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+
+                        @admin
+                            <x-dropdown-item href="/admin/posts" :active="request()->is('admin/posts')">All Post</x-dropdown-item>
+                            <x-dropdown-item href="/admin/posts/create" :active="request()->is('admin/posts/create')">New Post</x-dropdown-item>
+                        @endadmin
+                        
                         <x-dropdown-item href="#" x-data="{}"
                             @click.prevent="document.querySelector('#logout-form').submit()">Log Out</x-dropdown-item>
 
@@ -55,6 +59,8 @@
         </nav>
 
         {{ $slot }}
+
+        <x-flash />
 
         <footer id="newsletter"
             class="bg-gray-100 border border-black border-opacity-5 rounded-xl text-center py-16 px-10 mt-16">
